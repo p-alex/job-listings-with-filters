@@ -3,7 +3,10 @@ import Header from "./components/Header/Header";
 import JobsContainer from "./containers/JobsContainer/JobsContainer";
 import JobListing from "./components/JobListing/JobListing";
 import data from "./json/data.json";
+import { useSelector } from "react-redux";
 function App() {
+  const filters = useSelector((state) => state.filters);
+  console.log(filters);
   return (
     <>
       <Header />
