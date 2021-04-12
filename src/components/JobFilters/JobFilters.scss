@@ -1,0 +1,69 @@
+.jobFilters {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 1100px;
+  border-radius: 5px;
+  top: -32px;
+  margin: 0 auto;
+  animation-name: opacity;
+  animation-duration: 300ms;
+  box-shadow: 0 10px 20px var(--disaturatedDarkCyanOpacity);
+  padding: 10px;
+  background-color: var(--lightGrayishCyanBg);
+  @media (max-width: 1150px) {
+    width: 90%;
+  }
+  .filter_container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .clearFiltersBtn {
+    text-decoration: underline;
+    color: var(--disaturatedDarkCyan);
+    cursor: pointer;
+    margin: 10px;
+    &:hover {
+      color: #333;
+    }
+  }
+  .filter {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: rgb(240, 240, 240);
+    color: var(--disaturatedDarkCyan);
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+
+    p {
+      padding: 0 7px;
+    }
+    i {
+      position: relative;
+      padding: 5px 7px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      background: var(--disaturatedDarkCyan);
+      color: var(--lightGrayishCyanTablets);
+    }
+  }
+  .filter:hover i {
+    background: #333;
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

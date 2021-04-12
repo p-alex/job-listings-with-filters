@@ -111,6 +111,10 @@
       font-size: 15px;
       cursor: pointer;
     }
+    span:hover {
+      background-color: var(--disaturatedDarkCyan);
+      color: rgb(240, 240, 240);
+    }
   }
 }
 .featured {

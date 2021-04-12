@@ -1,5 +1,7 @@
 import React from "react";
 import "./JobListing.scss";
+import { addFilter } from "../../actions/filters";
+import { useDispatch } from "react-redux";
 export default function JobListing({
   company,
   logo,
@@ -14,6 +16,12 @@ export default function JobListing({
   languages,
   tools,
 }) {
+  const dispatch = useDispatch();
+
+  const handleFilter = (filter) => {
+    dispatch(addFilter(filter));
+  };
+
   return (
     <div className={isFeatured ? "listing featured" : "listing"}>
       <div className="listing_jobDetailsContainer">
@@ -56,13 +64,21 @@ export default function JobListing({
       </div>
 
       <div className="listing_languages">
-        <span>{role}</span>
-        <span>{level}</span>
+        <span onClick={() => handleFilter(role)}>{role}</span>
+        <span onClick={() => handleFilter(level)}>{level}</span>
         {languages.map((language) => {
-          return <span key={language}>{language}</span>;
+          return (
+            <span onClick={() => handleFilter(language)} key={language}>
+              {language}
+            </span>
+          );
         })}
         {tools.map((tool) => {
-          return <span key={tool}>{tool}</span>;
+          return (
+            <span onClick={() => handleFilter(tool)} key={tool}>
+              {tool}
+            </span>
+          );
         })}
       </div>
     </div>
