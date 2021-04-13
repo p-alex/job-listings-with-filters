@@ -1,6 +1,6 @@
-export const addFilter = (filter, type) => async (dispatch) => {
+export const addFilter = (filter) => async (dispatch) => {
   try {
-    dispatch({ type: "ADD_FILTER", payload: { filter, type } });
+    dispatch({ type: "ADD_FILTER", payload: { filter } });
   } catch (error) {
     console.log(error);
   }

@@ -17,11 +17,7 @@ export default function JobListing({
   tools,
 }) {
   const dispatch = useDispatch();
-
-  const handleFilter = (filter, type) => {
-    dispatch(addFilter(filter, type));
-  };
-
+  const handleFilter = (filter) => dispatch(addFilter(filter));
   return (
     <div className={isFeatured ? "listing featured" : "listing"}>
       <div className="listing_jobDetailsContainer">
@@ -62,27 +58,19 @@ export default function JobListing({
           </div>
         </div>
       </div>
-
       <div className="listing_languages">
-        <span onClick={() => handleFilter(role, "role")}>{role}</span>
-        <span onClick={() => handleFilter(level, "level")}>{level}</span>
-        {languages.map((language) => {
-          return (
-            <span
-              onClick={() => handleFilter(language, "languages")}
-              key={language}
-            >
-              {language}
-            </span>
-          );
-        })}
-        {tools.map((tool) => {
-          return (
-            <span onClick={() => handleFilter(tool, "tools")} key={tool}>
-              {tool}
-            </span>
-          );
-        })}
+        <span onClick={() => handleFilter(role)}>{role}</span>
+        <span onClick={() => handleFilter(level)}>{level}</span>
+        {languages.map((language) => (
+          <span onClick={() => handleFilter(language)} key={language}>
+            {language}
+          </span>
+        ))}
+        {tools.map((tool) => (
+          <span onClick={() => handleFilter(tool)} key={tool}>
+            {tool}
+          </span>
+        ))}
       </div>
     </div>
   );
