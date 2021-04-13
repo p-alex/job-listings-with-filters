@@ -13,6 +13,7 @@ export default function Jobs() {
         tags = [job.role, job.level];
         job.languages.map((lang) => (tags = [...tags, lang]));
         job.tools.map((tool) => (tags = [...tags, tool]));
+        return null;
       });
       let newData = data.filter((d) =>
         filters.every(
@@ -28,7 +29,6 @@ export default function Jobs() {
     }
     setFilteredData(data);
   }, [filters]);
-  console.log(filteredData);
   return (
     <div
       className="jobs"
