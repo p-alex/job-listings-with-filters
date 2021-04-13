@@ -5,12 +5,9 @@ import { removeFilter, resetFilters } from "../../actions/filters";
 export default function JobFilters() {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
-  const handleRemove = (filter) => {
-    dispatch(removeFilter(filter));
-  };
-  const handleReset = () => {
-    dispatch(resetFilters());
-  };
+  const handleRemove = (filter) => dispatch(removeFilter(filter));
+  const handleReset = () => dispatch(resetFilters());
+
   return (
     <>
       {filters.length ? (

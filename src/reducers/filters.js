@@ -1,10 +1,12 @@
 export default (filters = [], action) => {
   switch (action.type) {
     case "ADD_FILTER":
-      if (filters.includes(action.payload)) return filters;
-      return (filters = [...filters, action.payload]);
+      if (filters.includes(action.payload.filter) === false) {
+        return (filters = [...filters, action.payload.filter]);
+      }
+      return filters;
     case "REMOVE_FILTER":
-      return filters.filter((fil) => fil !== action.payload);
+      return filters;
     case "RESET_FILTERS":
       return [];
     default:

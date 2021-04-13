@@ -7,20 +7,42 @@ export default function Jobs() {
   const filters = useSelector((state) => state.filters);
   const [filteredData, setFilteredData] = useState([]);
   useEffect(() => {
-    setFilteredData(data);
-  });
-  useEffect(() => {
-    setFilteredData(data.filter((job) => !filters.includes(job.contract)));
+    let tags = [];
+    if (filters) {
+      data.map((job) => {
+        tags = [job.role, job.level];
+        job.languages.map((lang) => {
+          tags = [...tags, lang];
+        });
+        job.tools.map((tool) => {
+          tags = [...tags, tool];
+        });
+      });
+      let newData = data.filter((d) => {
+        return filters.every((filter) => {
+          return (
+            d.role === filter ||
+            d.level === filter ||
+            d.languages.includes(filter) ||
+            d.tools.includes(filter)
+          );
+        });
+      });
+      setFilteredData(newData);
+    } else {
+      setFilteredData(data);
+    }
   }, [filters]);
+  console.log(filteredData);
   return (
     <div
       className="jobs"
       style={filters.length ? { margin: "15px auto 80px auto" } : null}
     >
-      {filteredData.map((job, id) => {
+      {filteredData.map((job) => {
         return (
           <JobListing
-            key={id}
+            key={job.id}
             company={job.company}
             logo={job.logo}
             isNew={job.new}
