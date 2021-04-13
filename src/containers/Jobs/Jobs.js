@@ -8,13 +8,6 @@ export default function Jobs() {
   const [filteredData, setFilteredData] = useState([]);
   useEffect(() => {
     if (filters) {
-      let tags = [];
-      data.map((job) => {
-        tags = [job.role, job.level];
-        job.languages.map((lang) => (tags = [...tags, lang]));
-        job.tools.map((tool) => (tags = [...tags, tool]));
-        return null;
-      });
       let newData = data.filter((d) =>
         filters.every(
           (filter) =>
