@@ -6,7 +6,7 @@ export default (filters = [], action) => {
       }
       return filters;
     case "REMOVE_FILTER":
-      return filters;
+      return (filters = filters.filter((f) => f !== action.payload));
     case "RESET_FILTERS":
       return [];
     default:
