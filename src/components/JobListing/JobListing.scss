@@ -6,9 +6,8 @@
   display: flex;
   align-items: center;
   padding: 30px;
+  opacity: 0;
   justify-content: space-between;
-  animation-name: opacity;
-  animation-duration: 300ms;
   background-color: var(--lightGrayishCyanBg);
   @media (max-width: 1150px) {
     flex-direction: column;

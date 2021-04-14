@@ -23,10 +23,7 @@ export default function Jobs() {
     setFilteredData(data);
   }, [filters]);
   return (
-    <div
-      className="jobs"
-      style={filters.length ? { margin: "15px auto 80px auto" } : null}
-    >
+    <div className="jobs">
       {filteredData.map((job) => (
         <JobListing
           key={job.id}
